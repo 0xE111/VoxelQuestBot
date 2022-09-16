@@ -1,0 +1,12 @@
+version: '3.6'
+
+services:
+
+  app:
+    build: .
+    env_file: .env
+    healthcheck:
+      test: wget -q 127.0.0.1:8000
+    restart: on-failure
+    logging:
+      driver: journald
