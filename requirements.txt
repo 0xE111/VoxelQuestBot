@@ -1,2 +1,5 @@
+environs==9.5.0
 aiogram==3.0.0a18
-environs
+emoji==2.1.0
+fastapi==0.85.0
+uvicorn[standard]==0.18.3
