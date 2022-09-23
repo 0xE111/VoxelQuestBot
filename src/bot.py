@@ -65,7 +65,7 @@ def has(text: str, tokens: list[str]) -> bool:
     return any(token in text for token in tokens)
 
 
-async def chapter(message: Message, title: str, number: int, total: int, media: str):
+async def chapter(message: Message, title: str, number: int, total: int, media: str | None = None):
     await sleep(4)
     await answer(message, f'<b>Глава {number}. {title}</b>\n{"●"*number}{"○"*(total-number)}')
     await sleep(2)
@@ -137,7 +137,7 @@ async def echo_handler(message: Message):
     elif has(text, ['raspberry']):
         await answer_batch(message, [
             '...и получаю доступ к шеллу. ',
-            'Зачем люди стараются, придумывают все эти rsa/edsc ключи, когда идиоты просто оставляют прямой доступ всем желающим?..',
+            'Зачем люди стараются, придумывают все эти rsa/ed25519 ключи, когда идиоты просто оставляют прямой доступ всем желающим?..',
             'Сканирую устройство, но не нахожу ничего стоящего, разве что какие-то скрипты. Скачиваю их на всякий случай, потом изучу в песочнице.',
             'Я нажимаю ctrl+d, чтобы завершить ssh сессию и отсоединиться. Но тут случается то, чего я не ожидаю: ничего не происходит! Вбиваю пару команд, чтобы убедиться: всё работает, но человеческими способами сессия закрываться не хочет. Похоже, стоит какой-то обработчик на символ окончания ввода.',
             'Это чертовски интересно! Как они это сделали? Кастомный шелл? Или баг в ssh? Я трачу минут 10, проверяя различные гипотезы, пока не вбиваю безобидную команду journalctl и вижу среди логов:',
