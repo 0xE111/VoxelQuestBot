@@ -146,7 +146,7 @@ async def echo_handler(message: Message):
             'Что это за город?',
         ])
 
-    elif has(text, ['новосиб', 'нск', 'novosibirsk']):
+    elif has(text, ['новосиб', 'novosibirsk']):
         await answer_batch(message, [
             'Мой город.',
             'Сердце громко застучало, руки затряслись.',
